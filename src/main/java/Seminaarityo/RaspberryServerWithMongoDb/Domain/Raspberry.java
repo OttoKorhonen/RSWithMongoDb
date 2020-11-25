@@ -8,7 +8,6 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import lombok.AllArgsConstructor;
 
-@AllArgsConstructor
 @Document(collection = "raspberries")
 public class Raspberry {
 

@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import Seminaarityo.RaspberryServerWithMongoDb.Domain.Raspberry;
 import Seminaarityo.RaspberryServerWithMongoDb.Domain.RaspberryRepository;
 
-//@CrossOrigin(origins = "http://localhost:8080")
+@CrossOrigin(origins = "http://localhost:8080")
 @RestController
 @RequestMapping("/raspberries")
 public class RestApiController {

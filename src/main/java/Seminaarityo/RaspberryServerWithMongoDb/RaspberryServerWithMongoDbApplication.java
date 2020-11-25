@@ -1,29 +1,34 @@
 package Seminaarityo.RaspberryServerWithMongoDb;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.Bean;
+import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import com.mongodb.client.MongoClient;
-import com.mongodb.client.MongoClients;
-import com.mongodb.client.MongoDatabase;
+import Seminaarityo.RaspberryServerWithMongoDb.Domain.Raspberry;
+import Seminaarityo.RaspberryServerWithMongoDb.Domain.RaspberryRepository;
 
+@EnableMongoRepositories(basePackageClasses = RaspberryRepository.class)
 @SpringBootApplication
-public class RaspberryServerWithMongoDbApplication {
+public class RaspberryServerWithMongoDbApplication implements CommandLineRunner{
+	
+	@Autowired
+	private RaspberryRepository raspRepo;
 
 	public static void main(String[] args) {
 		SpringApplication.run(RaspberryServerWithMongoDbApplication.class, args);
-		MongoClient mongoClient = MongoClients.create();
-
 		
-		//MongoClient mongoClient = new MongoClient("localhost", 27017);
-//		MongoClient mongoClient = MongoClients.create();
-//		//MongoClient mongoClient = new MongoClient("localhost", 27017);
-//		MongoDatabase MongoDataBase = mongoClient.getDatabase("raspberrydb");
-//		System.out.print("Application good to go!");
-//		mongoClient.listDatabaseNames();
-//		MongoDataBase.listCollectionNames();
-//		
+	}
+		@Override
+		public void run(String... args) throws Exception {
+			
+			raspRepo.deleteAll();
+			
+			for(Raspberry raspberry : raspRepo.findAll()) {
+				System.out.println(raspberry);
+			}
 	}
 
 }
