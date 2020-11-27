@@ -33,10 +33,11 @@ public class RestApiController {
 		return raspRepo.findById(id);
 	}
 
-	@RequestMapping(value = "/{id}", method = RequestMethod.PUT)
-	public void modifyRaspberryById(@PathVariable("id") ObjectId id, @RequestBody Raspberry raspberry) {
-		raspberry.setId(id);
-		raspRepo.save(raspberry);
+	@RequestMapping(value = "/raspberries/{objectId}", method = RequestMethod.PUT)
+	Raspberry modifyRaspberryById(@PathVariable ObjectId id, @RequestBody Raspberry raspberry) {
+		return raspRepo.findById(id);
+			
+		//raspRepo.save(raspberry);
 	}
 
 	@RequestMapping(value = "/", method = RequestMethod.POST)

@@ -15,7 +15,6 @@ public class Raspberry {
 	private String latitude;
 	private String longitude;
 	private String imageUrl;
-	
 	private List<TimeStamp>timeStamp;
 
 	public Raspberry() {
@@ -37,8 +36,8 @@ public class Raspberry {
 		return id;
 	}
 
-	public void setId(ObjectId objectId) {
-		this.id = objectId;
+	public void setId(ObjectId id) {
+		this.id = id;
 	}
 
 	public String getLocation() {
@@ -83,9 +82,7 @@ public class Raspberry {
 
 	@Override
 	public String toString() {
-		return "Raspberry [id=" + id + ", location=" + location + ", latitude=" + latitude + ", longitude=" + longitude
-				+ ", imageUrl=" + imageUrl + ", timeStamp=" + timeStamp + "]";
+		return "Raspberry [id=" + id + ", location=" + location + ", latitude=" + latitude
+				+ ", longitude=" + longitude + ", imageUrl=" + imageUrl + ", timeStamp=" + timeStamp + "]";
 	}
-	
-	
 }

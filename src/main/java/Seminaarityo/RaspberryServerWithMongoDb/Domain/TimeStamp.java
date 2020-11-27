@@ -5,7 +5,6 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document(collection = "timestamps")
 public class TimeStamp {
-
 	@Id
 	private String dateId;
 	private String timeStamp;
