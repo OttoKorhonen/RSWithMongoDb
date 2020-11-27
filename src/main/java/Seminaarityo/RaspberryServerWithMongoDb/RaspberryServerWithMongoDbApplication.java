@@ -23,11 +23,11 @@ public class RaspberryServerWithMongoDbApplication implements CommandLineRunner{
 		@Override
 		public void run(String... args) throws Exception {
 			
-			raspRepo.deleteAll();
+			//raspRepo.deleteAll();
 			
 			for(Raspberry raspberry : raspRepo.findAll()) {
 				System.out.println(raspberry);
 			}
-	}
+		}
 
 }

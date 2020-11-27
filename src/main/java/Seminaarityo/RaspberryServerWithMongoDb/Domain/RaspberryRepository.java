@@ -11,6 +11,5 @@ import org.springframework.stereotype.Repository;
 public interface RaspberryRepository extends MongoRepository<Raspberry, String>{
 	List<Raspberry>findByLocation(String location);
 	Optional<Raspberry> findById(String id);
-
 	Raspberry findById(ObjectId id);
 }

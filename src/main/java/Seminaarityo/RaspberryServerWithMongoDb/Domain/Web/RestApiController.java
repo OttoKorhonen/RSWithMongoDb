@@ -17,37 +17,33 @@ import Seminaarityo.RaspberryServerWithMongoDb.Domain.RaspberryRepository;
 
 @CrossOrigin(origins = "http://localhost:8080")
 @RestController
-@RequestMapping("/raspberries")
+@RequestMapping("/raspberrydb")
 public class RestApiController {
 
 	@Autowired
 	RaspberryRepository raspRepo;
 
-	@RequestMapping(value ="/", method = RequestMethod.GET)
-	public List<Raspberry>getAllRaspberries(){
+	@RequestMapping(value = "/", method = RequestMethod.GET)
+	public List<Raspberry> getAllRaspberries() {
 		return raspRepo.findAll();
 	}
-	/*
+
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
-	public Raspberry getRaspberryByLocation(@PathVariable("id") ObjectId id ) {
-	  return raspRepo.findById(id);
-	}*/
-	
+	public Raspberry getRaspberryByLocation(@PathVariable("id") ObjectId id) {
+		return raspRepo.findById(id);
+	}
+
 	@RequestMapping(value = "/{id}", method = RequestMethod.PUT)
-	  public void modifyRaspberryById(@PathVariable("id") ObjectId id,  @RequestBody Raspberry raspberry) {
-	    raspberry.setId(id);
-	    raspRepo.save(raspberry);
-	  }
-	  
-	  @RequestMapping(value = "/", method = RequestMethod.POST)
-	  public Raspberry createRaspberry( @RequestBody Raspberry raspberry) {
-	    raspberry.setId(ObjectId.get());
-	    raspRepo.save(raspberry);
-	    return raspberry;
-	  }
-	  /*
-	  @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
-	  public void deleteRaspberry(@PathVariable ObjectId id) {
-	    raspRepo.delete(raspRepo.findById(id));
-	  }*/
+	public void modifyRaspberryById(@PathVariable("id") ObjectId id, @RequestBody Raspberry raspberry) {
+		raspberry.setId(id);
+		raspRepo.save(raspberry);
+	}
+
+	@RequestMapping(value = "/", method = RequestMethod.POST)
+	public Raspberry createRaspberry(@RequestBody Raspberry raspberry) {
+		raspberry.setId(ObjectId.get());
+		raspRepo.save(raspberry);
+		return raspberry;
+	}
+
 }

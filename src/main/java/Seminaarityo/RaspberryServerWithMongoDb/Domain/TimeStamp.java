@@ -9,19 +9,17 @@ public class TimeStamp {
 	@Id
 	private String dateId;
 	private String timeStamp;
-	
-	private Raspberry refDateRasp;
+	private int foundDevices;
 
 	public TimeStamp() {
 		super();
-		
 	}
 
-	public TimeStamp(String dateId, String timeStamp, Raspberry refDateRasp) {
+	public TimeStamp(String dateId, String timeStamp, int foundDevices) {
 		super();
 		this.dateId = dateId;
 		this.timeStamp = timeStamp;
-		this.refDateRasp = refDateRasp;
+		this.foundDevices = foundDevices;
 	}
 
 	public String getDateId() {
@@ -40,17 +38,17 @@ public class TimeStamp {
 		this.timeStamp = timeStamp;
 	}
 
-	public Raspberry getRefDateRasp() {
-		return refDateRasp;
+	public int getFoundDevices() {
+		return foundDevices;
 	}
 
-	public void setRefDateRasp(Raspberry refDateRasp) {
-		this.refDateRasp = refDateRasp;
+	public void setFoundDevices(int foundDevices) {
+		this.foundDevices = foundDevices;
 	}
 
 	@Override
 	public String toString() {
-		return "TimeStamp [dateId=" + dateId + ", timeStamp=" + timeStamp + ", refDateRasp=" + refDateRasp + "]";
+		return "TimeStamp [dateId=" + dateId + ", timeStamp=" + timeStamp + "]";
 	}
 	
 	
